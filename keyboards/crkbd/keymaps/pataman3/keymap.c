@@ -52,13 +52,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,                        KC_F7,    KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,
    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      XXXXXXX,  KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  XXXXXXX,
    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-                                             TO(0),    TO(1),  XXXXXXX,  XXXXXXX,    TO(3),    TO(4)
+                                             TO(1),    TO(0),  XXXXXXX,  XXXXXXX,    TO(3),    TO(4)
   ),
   [4] = LAYOUT_split_3x6_3(
      RESET,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
    XXXXXXX,  RGB_MOD, RGB_RMOD,  RGB_HUI,  RGB_HUD,  RGB_SAI,                      RGB_SAD,  RGB_VAI,  RGB_VAD,  RGB_SPI,  RGB_SPD,  XXXXXXX,
    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-                                             TO(0),    TO(1),  RGB_TOG,  RGB_TOG,    TO(3),    TO(4)
+                                             TO(1),    TO(0),  RGB_TOG,  RGB_TOG,    TO(3),    TO(4)
   )
 };
 
@@ -160,9 +160,27 @@ void oled_task_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case KC_COSE:
+      if (record->event.pressed) {
+        if (get_mods() & MOD_BIT(KC_LSFT)) {
+          unregister_code16(KC_LSFT);
+          register_code16(KC_SCLN);
+          register_code16(KC_LSFT);
+        } else if (get_mods() & MOD_BIT(KC_RSFT)) {
+          unregister_code16(KC_RSFT);
+          register_code16(KC_SCLN);
+          register_code16(KC_RSFT);
+        } else {
+          register_code16(KC_COMM);
+        }
+      } else {
+        unregister_code16(KC_COLN);
+        unregister_code16(KC_COMM);
+      }
+      return false;
+      break;
     case KC_DOCO:
-      if (record->event.pressed){
-        set_keylog(keycode, record);
+      if (record->event.pressed) {
         if (get_mods() & MOD_BIT(KC_LSFT) || get_mods() & MOD_BIT(KC_RSFT)) {
           register_code16(KC_COLN);
         } else {
@@ -174,26 +192,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case KC_COSE:
-      if (record->event.pressed){
-        set_keylog(keycode, record);
-        if (get_mods() & MOD_BIT(KC_LSFT)) {
-          unregister_code16(KC_LSFT);
-          register_code16(KC_COLN);
-        } else if (get_mods() & MOD_BIT(KC_RSFT)) {
-          unregister_code16(KC_RSFT);
-          register_code16(KC_COLN);
-        } else {
-          register_code16(KC_COMM);
-        }
-      } else {
-        unregister_code16(KC_COLN);
-        unregister_code16(KC_COMM);
-      }
-      return false;
-      break;
     default:
-      set_keylog(keycode, record);
       return true;
   }
   return true;
