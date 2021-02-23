@@ -11,41 +11,78 @@ enum custom_keycodes {
   KC_COSE
 };
 
+#define R2_A LGUI_T(KC_A)
+#define R2_R LALT_T(KC_R)
+#define R2_S LCTL_T(KC_S)
+#define R2_T LSFT_T(KC_T)
+#define R2_N RSFT_T(KC_N)
+#define R2_E RCTL_T(KC_E)
+#define R2_I LALT_T(KC_I)
+#define R2_O RGUI_T(KC_O)
+
+#define R0_LL LT(NAVI, KC_ESC)
+#define R0_LC LT(SYMB, KC_SPC)
+#define R0_LR LT(NUMB, KC_TAB)
+#define R0_RL LT(HTKY, KC_ENT)
+#define R0_RC LT(BRAC, KC_BSPC)
+#define R0_RR LT(FUNC, KC_DEL)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_65_ansi_blocker(
+  [BASE] = LAYOUT_65_ansi_blocker(
 			XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-		   KC_TAB,     KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,     KC_J,     KC_L,     KC_U,     KC_Y,  KC_QUES,  KC_GESC,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-	    KC_BSPC,     KC_A,     KC_R,     KC_S,     KC_T,     KC_G,     KC_M,     KC_N,     KC_E,     KC_I,     KC_O,   KC_ENT,  XXXXXXX,  XXXXXXX,\
-		  KC_LSFT,     KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,     KC_K,     KC_H,  KC_COSE,  KC_DOCO,  KC_QUOT,  KC_RSFT,  XXXXXXX,  XXXXXXX,\
-		  XXXXXXX,  KC_LCTL,    TG(2),   KC_SPC,  KC_RALT,  KC_RCTL,  XXXXXXX,  XXXXXXX,  XXXXXXX
+		                XXXXXXX,     KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,     KC_J,     KC_L,     KC_U,     KC_Y,  KC_QUES,  XXXXXXX,      XXXXXXX,  XXXXXXX,  XXXXXXX,\
+	                    R0_LC,     R2_A,     R2_R,     R2_S,     R2_T,     KC_G,     KC_M,     R2_N,     R2_E,     R2_I,     R2_O,    R0_RC,      XXXXXXX,  XXXXXXX,\
+		                XXXXXXX,     KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,     KC_K,     KC_H,  KC_COSE,  KC_DOCO,  KC_QUOT,  XXXXXXX,      XXXXXXX,  XXXXXXX,\
+		  XXXXXXX,                                      R0_LL,    R0_LR,   KC_SPC,              R0_RL,    R0_RR,                                    XXXXXXX,  XXXXXXX,  XXXXXXX
   ),
-  [1] = LAYOUT_65_ansi_blocker(
-			XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-		   KC_TAB,     KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_I,     KC_O,     KC_U,     KC_P,  KC_GESC,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-	    KC_BSPC,     KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,  KC_QUES,   KC_ENT,  XXXXXXX,  XXXXXXX,\
-		  KC_LSFT,     KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,  KC_COSE,  KC_DOCO,  KC_QUOT,  KC_RSFT,  XXXXXXX,  XXXXXXX,\
-		  XXXXXXX,  KC_LCTL,    TG(2),   KC_SPC,  KC_RALT,  KC_RCTL,  XXXXXXX,  XXXXXXX,  XXXXXXX
-  ),
-  [2] = LAYOUT_65_ansi_blocker(
-			XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-		   KC_TAB,  KC_EXLM,    KC_AT,  KC_HASH,   KC_DLR,  KC_PERC,  KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_MINS,   KC_EQL,  KC_GESC,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-	    KC_BSPC,     KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,   KC_ENT,  XXXXXXX,  XXXXXXX,\
-		  KC_LSFT,  KC_LABK,  KC_LCBR,  KC_LBRC,  KC_LPRN,  KC_SLSH,  KC_BSLS,  KC_RPRN,  KC_RBRC,  KC_RCBR,  KC_RABK,  KC_RSFT,  XXXXXXX,  XXXXXXX,\
-		  XXXXXXX,  KC_LCTL,    TG(2),   KC_SPC,    TO(3),  KC_RCTL,  XXXXXXX,  XXXXXXX,  XXXXXXX
-  ),
-  [3] = LAYOUT_65_ansi_blocker(
-			XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-		    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-	    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-		  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-		  XXXXXXX,    TO(1),    TO(0),  XXXXXXX,    TO(3),    TO(4),  XXXXXXX,  XXXXXXX,  XXXXXXX
-  ),
-  [4] = LAYOUT_65_ansi_blocker(
+  [FUNC] = LAYOUT_65_ansi_blocker(
 		  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-			  RESET,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-			XXXXXXX,  RGB_MOD, RGB_RMOD,  RGB_HUI,  RGB_HUD,  RGB_SAI,  RGB_SAD,  RGB_VAI,  RGB_VAD,  RGB_SPI,  RGB_SPD,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-		  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
-		  XXXXXXX,    TO(1),    TO(0),  RGB_TOG,    TO(3),    TO(4),  XXXXXXX,  XXXXXXX,  XXXXXXX
+			              XXXXXXX,   KC_F12,    KC_F7,    KC_F8,    KC_F9,  XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              XXXXXXX,   KC_F11,    KC_F4,    KC_F5,    KC_F6,  XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      XXXXXXX,  XXXXXXX,\
+		                XXXXXXX,   KC_F10,    KC_F1,    KC_F2,    KC_F3,  XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      XXXXXXX,  XXXXXXX,\
+		  XXXXXXX,                                    XXXXXXX,  XXXXXXX,  KC_TRNS,            KC_TRNS,  KC_TRNS,                                    XXXXXXX,  XXXXXXX,  XXXXXXX
+  ),
+  [BRAC] = LAYOUT_65_ansi_blocker(
+		  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              XXXXXXX, KC_GRAVE,  KC_PIPE,  KC_SLSH,  KC_BSLS,  XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              XXXXXXX,  KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      XXXXXXX,  XXXXXXX,\
+		                XXXXXXX,  KC_LABK,  KC_RABK,  KC_LCBR,  KC_RCBR,  XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      XXXXXXX,  XXXXXXX,\
+		  XXXXXXX,                                    XXXXXXX,  XXXXXXX,  KC_TRNS,            KC_TRNS,  KC_TRNS,                                    XXXXXXX,  XXXXXXX,  XXXXXXX
+  ),
+  [HTKY] = LAYOUT_65_ansi_blocker(
+		  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      XXXXXXX,  XXXXXXX,\
+		                XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,      XXXXXXX,  XXXXXXX,\
+		  XXXXXXX,                                    XXXXXXX,  XXXXXXX,  KC_TRNS,            KC_TRNS,  KC_TRNS,                                    XXXXXXX,  XXXXXXX,  XXXXXXX
+  ),
+  [NUMB] = LAYOUT_65_ansi_blocker(
+		  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
+	                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,     KC_7,     KC_8,     KC_9,  XXXXXXX,  XXXXXXX,      XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,     KC_4,     KC_5,     KC_6,     KC_0,  XXXXXXX,      XXXXXXX,  XXXXXXX,\
+		                KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,     KC_1,     KC_2,     KC_3,   KC_DOT,  XXXXXXX,      XXXXXXX,  XXXXXXX,\
+		  XXXXXXX,                                    KC_TRNS,  KC_TRNS,  KC_TRNS,            XXXXXXX,  XXXXXXX,                                    XXXXXXX,  XXXXXXX,  XXXXXXX
+  ),
+  [SYMB] = LAYOUT_65_ansi_blocker(
+		  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,  KC_AMPR,  KC_ASTR,  KC_UNDS,  KC_PLUS,  XXXXXXX,      XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,   KC_DLR,  KC_PERC,  KC_CIRC,  KC_MINS,  XXXXXXX,      XXXXXXX,  XXXXXXX,\
+		                KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,  KC_EXLM,    KC_AT,  KC_HASH,   KC_EQL,  XXXXXXX,      XXXXXXX,  XXXXXXX,\
+		  XXXXXXX,                                    KC_TRNS,  KC_TRNS,  KC_TRNS,            XXXXXXX,  XXXXXXX,                                    XXXXXXX,  XXXXXXX,  XXXXXXX
+  ),
+  [NAVI] = LAYOUT_65_ansi_blocker(
+		  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, TO(GAME),  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,      XXXXXXX,  XXXXXXX,  XXXXXXX,\
+			              KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,  KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  XXXXXXX,      XXXXXXX,  XXXXXXX,\
+		                KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,      XXXXXXX,  XXXXXXX,\
+		  XXXXXXX,                                    KC_TRNS,  KC_TRNS,  KC_TRNS,            XXXXXXX,  XXXXXXX,                                    XXXXXXX,  XXXXXXX,  XXXXXXX
+  ),
+  [GAME] = LAYOUT_65_ansi_blocker(
+			 KC_ESC,     KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,  KC_MINS,   KC_EQL,  KC_BSPC,   KC_DEL,\
+		   KC_TAB,     KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_I,     KC_O,     KC_U,     KC_P,  KC_LBRC,  KC_RBRC,  KC_BSLS,  KC_PGUP,\
+	    KC_CAPS,     KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,  KC_SEMI,  KC_QUOT,   KC_ENT,  KC_PGDN,\
+		  KC_LSFT,     KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,  KC_COMM,   KC_DOT,  KC_SLSH,  KC_RSFT,    KC_UP, TO(BASE),\
+		  KC_LCTL,  KC_LGUI,  KC_LALT,   KC_SPC,  KC_RALT,  KC_RCTL,  KC_LEFT,  KC_DOWN,  KC_RGHT
   ),
 };
 
