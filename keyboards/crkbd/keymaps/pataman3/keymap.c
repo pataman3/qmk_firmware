@@ -11,8 +11,8 @@ enum keymap_layers {
   _FUNC,
   _BRAC,
   _HTKY,
-  _NUMB,
   _SYMB,
+  _NUMB,
   _NAVI
 };
 enum custom_keycodes {
@@ -31,46 +31,46 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3( // base
-                XXXXXXX,     KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,                         KC_J,     KC_L,     KC_U,     KC_Y,  KC_QUES,              XXXXXXX, \
-    LT(_SYMB,   KC_SPC),     R2_A,     R2_R,     R2_S,     R2_T,     KC_G,                         KC_M,     R2_N,     R2_E,     R2_I,     R2_O,  LT(_BRAC,  KC_BSPC), \
-                XXXXXXX,     KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,                         KC_K,     KC_H,  KC_COSE,  KC_DOCO,  KC_QUOT,              XXXXXXX, \
-                LT(_NAVI,   KC_ESC),    LT(_SYMB,   KC_SPC),    LT(_NUMB,   KC_TAB),    LT(_HTKY,   KC_ENT),    LT(_BRAC,  KC_BSPC),    LT(_FUNC,   KC_DEL)
+    XXXXXXX,     KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,                         KC_J,     KC_L,     KC_U,     KC_Y,  KC_QUES,  XXXXXXX, \
+    XXXXXXX,     R2_A,     R2_R,     R2_S,     R2_T,     KC_G,                         KC_M,     R2_N,     R2_E,     R2_I,     R2_O,  XXXXXXX, \
+    XXXXXXX,     KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,                         KC_K,     KC_H,  KC_COSE,  KC_DOCO,  KC_QUOT,  XXXXXXX, \
+    LT(_NAVI,   KC_ESC),    LT(_NUMB,   KC_SPC),    LT(_SYMB,   KC_TAB),    LT(_HTKY,   KC_ENT),    LT(_BRAC,  KC_BSPC),    LT(_FUNC,   KC_DEL)
   ),
   [_FUNC] = LAYOUT_split_3x6_3( // functions
-			      XXXXXXX,   KC_F12,    KC_F7,    KC_F8,    KC_F9,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
-			      KC_TRNS,   KC_F11,    KC_F4,    KC_F5,    KC_F6,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
-		        XXXXXXX,   KC_F10,    KC_F1,    KC_F2,    KC_F3,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
-                                                    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
+    XXXXXXX,   KC_F12,    KC_F7,    KC_F8,    KC_F9,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
+    XXXXXXX,   KC_F11,    KC_F4,    KC_F5,    KC_F6,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
+    XXXXXXX,   KC_F10,    KC_F1,    KC_F2,    KC_F3,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
   [_BRAC] = LAYOUT_split_3x6_3( // brackets
-			      XXXXXXX, KC_GRAVE,  KC_PIPE,  KC_SLSH,  KC_BSLS,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
-			      KC_TRNS,  KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
-		        XXXXXXX,  KC_LABK,  KC_RABK,  KC_LCBR,  KC_RCBR,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
-                                                    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
+    XXXXXXX, KC_GRAVE,  KC_PIPE,  KC_SLSH,  KC_BSLS,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
+    XXXXXXX,  KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
+    XXXXXXX,  KC_LABK,  KC_RABK,  KC_LCBR,  KC_RCBR,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
   [_HTKY] = LAYOUT_split_3x6_3( // hotkeys
-			      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
-			      KC_TRNS,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
-		        XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
-                                                    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
-  ),
-  [_NUMB] = LAYOUT_split_3x6_3( // numbers
-	          KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,     KC_7,     KC_8,     KC_9,  XXXXXXX,  XXXXXXX, \
-			      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,     KC_4,     KC_5,     KC_6,     KC_0,  KC_TRNS, \
-		        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,     KC_1,     KC_2,     KC_3,   KC_DOT,  XXXXXXX, \
-                                                    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
   [_SYMB] = LAYOUT_split_3x6_3( // symbols
-			      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  KC_AMPR,  KC_ASTR,  KC_UNDS,  KC_PLUS,  XXXXXXX, \
-			      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,   KC_DLR,  KC_PERC,  KC_CIRC,  KC_MINS,  KC_TRNS, \
-		        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  KC_EXLM,    KC_AT,  KC_HASH,   KC_EQL,  XXXXXXX, \
-                                                    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  KC_AMPR,  KC_ASTR,  KC_UNDS,  KC_PLUS,  XXXXXXX, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,   KC_DLR,  KC_PERC,  KC_CIRC,  KC_MINS,  XXXXXXX, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  KC_EXLM,    KC_AT,  KC_HASH,   KC_EQL,  XXXXXXX, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
+  ),
+  [_NUMB] = LAYOUT_split_3x6_3( // numbers
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,     KC_7,     KC_8,     KC_9,  XXXXXXX,  XXXXXXX, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,     KC_4,     KC_5,     KC_6,  XXXXXXX,  XXXXXXX, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,     KC_1,     KC_2,     KC_3,  XXXXXXX,  XXXXXXX, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_DOT,     KC_0,  KC_TRNS
   ),
   [_NAVI] = LAYOUT_split_3x6_3( // navigation
-			      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,    RESET, \
-			      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  KC_TRNS, \
-		        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, \
-                                                    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,    RESET, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  XXXXXXX, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, \
+    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   )
 };
 
